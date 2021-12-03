@@ -15,4 +15,4 @@ COPY . /app
 
 ENTRYPOINT [ "python" ]
 
-CMD [ "server.py" ]
+CMD [ "server_unity.py" ]
