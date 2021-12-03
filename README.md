@@ -107,4 +107,16 @@ Estoy emocionado para poder hacer un projecto en el futuro con lo que he aprendi
 
 #### Análisis
 
+Para nuestra modelación utilizamos el acercamiento de Breath First Search (BFS) considerando cada celda de nuestro grid como un nodo. Para definir las conexiones entre nodos utilizamos 2 factores. La posición actual del agente, es decir, que el agente no puede moverse en contra de la dirección de su nodo actual, y las posibles entradas a un nodo, es decir, a un nodo con dirección a la derecha solo se puede entrar desde la derecha ya sea en diagonal o recto. Por algunos edge cases en la simulación tuvimos que permitir algunos movimientos en 90 grados, pero por la naturaleza de nuestro algoritmo estos movimientos únicamente se llevan a cabo como último recurso. 
+
+Para la aparición de agentes utilizamos una selección aleatoria de agentes de calle (Road) en este caso se pudo haber optimizado un poco más en el sentido de que pudimos haber checado si ya había un agente de coche en la misma posición ya que cuando agregamos muchos agentes hay chance de que 2 agentes aparezcan en el mismo lugar, estos agentes después dejan de estar empalmados debido al RandomActivation. 
+
+Otro tema a considerar para la optimización es la posibilidad de incorporar una mejor comunicación entre agentes. Actualmente los agentes simplemente se evitan entre sí de una manera muy reactiva, esta reacción se podría mejorar haciendo que entre agentes se comuniquen sus futuros movimientos para hacer que el tráfico sea más fluido y las calles se aprovechen más. También, nuestros agentes solo calculan su ruta una sola vez, cuando son creados, esto se podría mejorar para que los agentes sean capaces de evitar el trafico en intersecciones muy llenas y aprovechar más la infraestructura de la ciudad.
+
+Nuestro diseño de algoritmo fue hecho completamente por nosotros, la complejidad temporal es la misma que un Breath First Search osea O(V + E) donde V son los vertices o nodos, y la E son los Ejes. Creemos que este acercamiento es el más práctico de implementar aunque talvez este reto se beneficiaría de otro tipo de algoritmo como el A*.
+
+El diseño visual fue bastante normal, para mesa utilizamos colores brillantes para identificar correctamente a todos los agentes y en Unity simplemente tratamos de seguir el tema ya existente de la ciudad dada.
+
 #### Reflexión
+
+Fue un trabajo muy interesante, creo que el haber aprendido a manejar agentes inteligentes es una gran adición a nuestros arsenales. El trabajar con agentes demandó explorar perspectivas nuevas y diferentes para lograr un diseño más optimizado de nuestros modelos. El conectar todo con un servido de Flask también fue muy interesante y creo que nos da muchas opciones nuevas a considerar cuando lleguemos a tener que lidiar con modelación de agentes particularmente es la presentación. El bloque fue algo corto para el proyecto en mi opinión por lo que no tuvimos la oportunidad de explorar mejores soluciones para nuestros modelos pero estoy bastante satisfecho con nuestros resultados.
