@@ -1,0 +1,5 @@
+---
+applications:
+ - name: TrafficBase
+   random-route: true
+   memory: 900M
